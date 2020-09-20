@@ -24,6 +24,18 @@ const displayFamilyMember = function (event) {
     .catch(ui.showMemberFailure)
 }
 
+const deleteFamilyMember = function (event) {
+  event.preventDefault()
+  const submitFamilyMember = event.target
+  const data = getFamilyData(submitFamilyMember)
+  console.log('Delete button was clicked')
+  $('#message').text('Delete button was clicked')
+
+  api.deleteMember(data)
+    .then(ui.onDeleteSuccess)
+    .catch(ui.onDeleteFailure)
+}
+
 // const newTrackGamePiece = function (event) {
 //   event.preventDefault()
 //   // get position and player
@@ -132,5 +144,6 @@ const displayFamilyMember = function (event) {
 
 module.exports = {
   addFamilyMember: addFamilyMember,
-  displayFamilyMember: displayFamilyMember
+  displayFamilyMember: displayFamilyMember,
+  deleteFamilyMember: deleteFamilyMember
 }

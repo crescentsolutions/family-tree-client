@@ -2,8 +2,12 @@
 
 const config = require('./../config')
 const store = require('../store')
+const familyMemberStore = require('./../family-store.js')
 
 const newMember = function (data) {
+  console.log('This is from API: Create')
+  console.log(data)
+  console.log(data.familyMember)
   return $.ajax({
     url: config.apiUrl + '/family-members',
     method: 'POST',
@@ -24,17 +28,17 @@ const getMembers = function (data) {
     data: data
   })
 }
-//
-// const signOut = function (data) {
-//   return $.ajax({
-//     url: config.apiUrl + '/sign-out',
-//     method: 'DELETE',
-//     headers: {
-//       Authorization: 'Bearer ' + store.user.token
-//     }
-//   })
-// }
-//
+
+const deleteMember = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/family-members/' + familyMemberStore.id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
 // const changePw = function (data) {
 //   return $.ajax({
 //     url: config.apiUrl + '/change-password',
@@ -48,5 +52,6 @@ const getMembers = function (data) {
 
 module.exports = {
   newMember: newMember,
-  getMembers: getMembers
+  getMembers: getMembers,
+  deleteMember: deleteMember
 }
