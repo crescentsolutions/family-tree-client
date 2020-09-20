@@ -3,7 +3,7 @@
 // Source: https://github.com/crescentsolutions/tic-tac-toe
 
 const authEvents = require('./auth/events')
-// const familyEvents = require('./family/events')
+const familyEvents = require('./family/events')
 const customEvents = require('./custom/custom')
 
 $(() => {
@@ -12,9 +12,9 @@ $(() => {
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#sign-out').on('submit', authEvents.onSignOut)
   $('#change-password').on('submit', authEvents.onChangePw)
-  // Game
-  // $('#start-game').on('click', gameEvents.newGameEvent)
-  // $('.game-square').on('click', gameEvents.newTrackGamePiece)
+  // Family
+  $('#add-family-member').on('submit', familyEvents.addFamilyMember)
+  $('#toggle-family-view').on('submit', familyEvents.displayFamilyMember)
   // $('#view-game-history').on('click', gameEvents.newGameHistory)
   // Custom UI functions
   $('#sign-up-link').on('click', customEvents.linkSignUp)

@@ -24,7 +24,11 @@
       <div class="container">
         <div class="row">
           <div class="col view-switch-option">
-            <button id="toggle-family-view">View Family As List</button>
+            <form id="toggle-family-view">
+              <fieldset>
+                <input type="submit" value="View Family As List">
+              </fieldset>
+            </form>
           </div>
           <div class="col" id="create-famiy-member">
             <h3>Add A Family Member</h3>
@@ -77,8 +81,34 @@
       <section>
         <div class="container">
           <div class="row">
+            <form id="add-family-member">
+              <fieldset>
+                <legend>Add Family Member</legend>
+                <p id="message-add"></p>
+                <input id="add-name" type="text" name="familyMember[firstName]" placeholder="Name">
+                <input id="add-relationship" type="text" name="familyMember[relationship]" placeholder="Relationship">
+                <input id="add-generation" type="text" name="familyMember[generation]" placeholder="Generation">
+                <input id="add-choice" type="text" name="familyMember[familyTree]" placeholder="Choose">
+                <input type="submit" value="Add New Family Member">
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="container">
+          <div class="row">
             <div class="col tree">
               <h2>Family Tree</h2>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div id="family-section" class="container">
+          <div class="row">
+            <div class="col">
+              <p class="display-family"></p>
             </div>
           </div>
         </div>
