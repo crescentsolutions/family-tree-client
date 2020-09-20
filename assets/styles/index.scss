@@ -1,1 +1,28 @@
 @import '~bootstrap/scss/bootstrap';
+
+/*AUTH*/
+.sign-out {
+  display: none;
+}
+#change-pw-btn {
+  display: none;
+}
+#sign-up {
+  display: none;
+}
+#change-password {
+  display: none;
+}
+/*Menu Options*/
+#create-famiy-member {
+  display: none;
+}
+.view-switch-option {
+  display: none;
+}
+/*TREE*/
+.tree {
+  border: solid red 5px;
+  display: none;
+  height: 100px;
+}
