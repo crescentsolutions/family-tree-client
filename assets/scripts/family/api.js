@@ -30,7 +30,6 @@ const getMembers = function (data) {
 }
 
 const deleteMember = function (resourceID) {
-  console.log('my token is ', store.user.token)
   return $.ajax({
     url: config.apiUrl + '/family-members/' + resourceID,
     method: 'DELETE',

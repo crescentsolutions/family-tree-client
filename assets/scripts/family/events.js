@@ -26,18 +26,22 @@ const displayFamilyMember = function (event) {
 
 const deleteFamilyMember = function (event) {
   event.preventDefault()
-  const submitFamilyMember = event.target
+  // const submitFamilyMember = event.target
   $('#message').text('Delete button was clicked')
 
   // submitFamilyMember displays the ID for this object
   const submitFamilyMemberId = $(event.target).data('id')
+  // const formEntryCounter = event.target.dataset.count
+  // const selector = $('p.' + formEntryCounter)
 
   api.deleteMember(submitFamilyMemberId)
     .then(ui.onDeleteSuccess)
     .catch(ui.onDeleteFailure)
 
-  console.log('Family Member', submitFamilyMember)
-  submitFamilyMemberId.hide()
+  // console.log('Family Member', submitFamilyMember)
+  // console.log('formEntryCounter is ')
+  // console.log(formEntryCounter)
+  $(event.target).hide()
 }
 
 // const newTrackGamePiece = function (event, submitFamilyMember) {

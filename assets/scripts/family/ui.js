@@ -18,10 +18,11 @@ const showMemberSuccess = function (response) {
       $('.display-family').append(`
         <form id="delete-family-member" data-id=${response.familyMembers[i]._id} data-owner=${response.familyMembers[i].owner}>
           <fieldset>
+            <p data-count="${i}">Name: ${response.familyMembers[i].firstName}, Relationship: ${response.familyMembers[i].relationship}, Generation: ${response.familyMembers[i].generation}, Family Tree: ${response.familyMembers[i].familyTree}</p>
             <input type="submit" value="Delete">
           </fieldset>
         </form>
-        <p>Name: ${response.familyMembers[i].firstName}, Relationship: ${response.familyMembers[i].relationship}, Generation: ${response.familyMembers[i].generation}, Family Tree: ${response.familyMembers[i].familyTree}</p>`)
+        `)
     }
   }
 
