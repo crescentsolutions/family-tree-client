@@ -15,7 +15,7 @@ $(() => {
   // Family
   $('#add-family-member').on('submit', familyEvents.addFamilyMember)
   $('#toggle-family-view').on('submit', familyEvents.displayFamilyMember)
-  $('#delete-family-member').on('submit', familyEvents.deleteFamilyMember)
+  $('.display-family').on('submit', '#delete-family-member', familyEvents.deleteFamilyMember)
   // $('#view-game-history').on('click', gameEvents.newGameHistory)
   // Custom UI functions
   $('#sign-up-link').on('click', customEvents.linkSignUp)

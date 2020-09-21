@@ -1,4 +1,8 @@
-curl "https://stormy-gorge-66260.herokuapp.com/sign-out" \
+API="http://localhost:4741"
+# API="https://stormy-gorge-66260.herokuapp.com/sign-in"
+URL_PATH="/sign-out"
+
+curl "${API}${URL_PATH}" \
   --include \
   --request DELETE \
   --header "Authorization: Bearer ${TOKEN}" \
