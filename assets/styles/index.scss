@@ -1,13 +1,73 @@
 @import '~bootstrap/scss/bootstrap';
 
 $grey-1: rgba(186, 186, 194, .8);
+$grey-2: #494d53;
+$charcoal: #36454f;
+$black: #000;
 $purple-gradient: linear-gradient($grey-1, #9f71ab);
+$standard-radius: 50px;
+$input-radius: 5px;
+$main-text: #fff;
+$thin-border: solid 1px;
+$clear: rgba(186, 186, 194, .1);
 
+* {
+  color: $black;
+}
 body {
   background: $purple-gradient;
   background-repeat: no-repeat;
   height: 100vh;
   width: 100%;
+}
+
+h1 {
+  border: $thin-border;
+  margin: auto;
+  margin-top: 20px;
+  text-align: center;
+  width: 50%;
+  padding: 1em 0px;
+}
+
+.form-design {
+  margin: 20px 0;
+  margin: auto;
+  padding: 2em;
+  text-align: center;
+  max-width: 500px;
+
+  input {
+    border: 0;
+    border-radius: $input-radius;
+    color: $main-text;
+    margin: 0;
+    margin: 5px;
+    padding: 1em;
+    width: inherit;
+  }
+  .button-style-1 {
+    background: $clear;
+    border: $thin-border;
+    color: $black;
+    cursor: pointer;
+    float: right;
+    :hover {
+      background: $grey-1;
+    }
+    :focus {
+      background: $grey-1;
+    }
+  }
+}
+
+.link-style {
+  font-weight: bold;
+  display: block;
+  cursor: pointer;
+  :hover {
+    color: $grey-1;
+  }
 }
 
 /*AUTH*/
