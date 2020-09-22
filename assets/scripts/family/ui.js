@@ -1,24 +1,42 @@
 'use strict'
 
+// Source: https://www.w3schools.com/jquery/jquery_dom_set.asp
+
 const store = require('./../store.js')
 
 const onAddSuccess = function (response) {
   $('#message').text('Family member successfully added')
-  console.log('New famiy member successfully added')
+  $('#add-family-member').trigger('reset')
+
+  if ($('#family-section').is(':visible')) {
+    $('#family-member-form').append(`
+      <form id="family-member-form" data-id=${response.familyMember._id} data-owner=${response.familyMember.owner}>
+        <fieldset>
+          <p>Name: ${response.familyMember.firstName}, Relationship: ${response.familyMember.relationship}, Generation: ${response.familyMember.generation}, Family Tree: ${response.familyMember.familyTree}</p>
+          <input type="submit" value="Delete">
+        </fieldset>
+      </form>
+      `)
+  } else {
+    return null
+  }
 }
+
 const onAddFailure = function (error) {
-  $('#message').text('Add FAILED')
+  $('#message').text('We could not add a family member')
   console.log(error)
 }
 
 const showMemberSuccess = function (response) {
-  $('#message').text('Show Success')
+  $('#message').text('View your family below')
+  $('#family-section').show()
+
   const showList = function () {
     for (let i = 0; i < response.familyMembers.length; i++) {
       $('.display-family').append(`
-        <form id="delete-family-member" data-id=${response.familyMembers[i]._id} data-owner=${response.familyMembers[i].owner}>
+        <form id="family-member-form" data-id=${response.familyMembers[i]._id} data-owner=${response.familyMembers[i].owner}>
           <fieldset>
-            <p data-count="${i}">Name: ${response.familyMembers[i].firstName}, Relationship: ${response.familyMembers[i].relationship}, Generation: ${response.familyMembers[i].generation}, Family Tree: ${response.familyMembers[i].familyTree}</p>
+            <p>Name: ${response.familyMembers[i].firstName}, Relationship: ${response.familyMembers[i].relationship}, Generation: ${response.familyMembers[i].generation}, Family Tree: ${response.familyMembers[i].familyTree}</p>
             <input type="submit" value="Delete">
           </fieldset>
         </form>
@@ -38,9 +56,9 @@ const showMemberSuccess = function (response) {
 // </form>
 
   showList()
-  // $('.display-family').text(response)
-  console.log('From UI.js: Show Member Success')
+  // $('#toggle-family-view input').attr('value', 'Refresh')
 }
+
 const showMemberFailure = function (error) {
   $('#message').text('Show FAILED')
   console.log(error)

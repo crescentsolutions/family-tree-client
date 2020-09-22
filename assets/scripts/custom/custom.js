@@ -23,10 +23,15 @@ const linkChangePw = function () {
 const headerChangePw = function () {
   // $('#change-password').show(function () {
 }
+const createCallToAction = function () {
+  $('#add-family-member').show()
+  $('#create-cta').hide()
+}
 
 module.exports = {
   linkSignUp: linkSignUp,
   linkSignIn: linkSignIn,
   linkChangePw: linkChangePw,
-  headerChangePw: headerChangePw
+  headerChangePw: headerChangePw,
+  createCallToAction: createCallToAction
 }

@@ -47,22 +47,23 @@ const onSignInSuccess = function (response) {
   $('#sign-up').hide()
   $('#sign-in').hide()
   $('#change-pw-btn').show()
-  $('#create-famiy-member').show()
-  $('.view-switch-option').show()
-  $('.tree').show()
   if ($('#change-password').is(':visible')) {
-    $('.tree').hide()
     $('.sign-out').hide()
     $('#message-change-password').text('You have signed in. Please change your password')
+    $('.view-switch-option').hide()
+    $('.tree').hide()
+    $('#create-cta').hide()
   } else {
-    $('.tree').show()
     $('.sign-out').show()
+    $('.view-switch-option').show()
+    $('.tree').show()
+    $('#create-cta').show()
   }
 }
 const onSignInFailure = function (error) {
   $('#message').text('Sign in failed. Please try again.')
   $('#message').css('border', 'solid 5px #fff')
-  if (error.statusText == 'Unauthorized') {
+  if (error.statusText === 'Unauthorized') {
     $('#message-sign-in').text('You have entered the wrong credentials. Try again.')
     $('#sign-in-email').css('background', 'rgba(240, 52, 52, .5)')
     $('#sign-in-password').css('background', 'rgba(240, 52, 52, .5)')
@@ -89,6 +90,7 @@ const onSignOutSuccess = function (response) {
   $('#create-famiy-member').hide()
   $('.view-switch-option').hide()
   $('.tree').hide()
+  $('#add-family-member').show()
   messageReset()
 }
 
