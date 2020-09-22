@@ -87,10 +87,8 @@ const onSignOutSuccess = function (response) {
   $('#change-pw-btn').hide()
   $('#sign-out').hide()
   $('#change-password').hide()
-  $('#create-famiy-member').hide()
-  $('.view-switch-option').hide()
-  $('.tree').hide()
-  $('#add-family-member').show()
+  $('.protected').hide()
+  $('.dashboard').hide()
   messageReset()
 }
 

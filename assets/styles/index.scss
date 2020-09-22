@@ -1,5 +1,15 @@
 @import '~bootstrap/scss/bootstrap';
 
+$grey-1: rgba(186, 186, 194, .8);
+$purple-gradient: linear-gradient($grey-1, #9f71ab);
+
+body {
+  background: $purple-gradient;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+}
+
 /*AUTH*/
 .sign-out {
   display: none;

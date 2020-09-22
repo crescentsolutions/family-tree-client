@@ -15,12 +15,14 @@ $(() => {
   // Family
   $('#add-family-member').on('submit', familyEvents.addFamilyMember)
   $('#toggle-family-view').on('submit', familyEvents.displayFamilyMember)
-  $('.display-family').on('submit', '#family-member-form', familyEvents.deleteFamilyMember)
-  // $('#view-game-history').on('click', gameEvents.newGameHistory)
+  $('.display-family').on('submit', '#delete-family-member', familyEvents.deleteFamilyMember)
+  $('.display-family').on('submit', '#update-family-member', familyEvents.updateFamilyMember)
   // Custom UI functions
   $('#sign-up-link').on('click', customEvents.linkSignUp)
   $('#sign-in-link').on('click', customEvents.linkSignIn)
   $('#change-pw-link').on('click', customEvents.linkChangePw)
   $('#change-pw-btn').on('click', customEvents.headerChangePw)
   $('#create-button-cta').on('click', customEvents.createCallToAction)
+  $('.display-family').on('click', 'ul button#update', customEvents.familyListEditOption)
+  $('.display-family').on('click', 'ul button#delete', customEvents.familyListDeleteOption)
 })

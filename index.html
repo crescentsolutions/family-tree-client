@@ -13,7 +13,7 @@
     </head>
     <body>
       <header>
-        <form id="sign-out" class="sign-out">
+        <form id="sign-out" class="sign-out protected dashboard">
           <fieldset>
             <input type="submit" value="Sign Out">
           </fieldset>
@@ -21,7 +21,7 @@
         <button id="change-pw-btn">Change Password</button>
       </header>
       <h1>Family Tree</h1>
-      <div class="container">
+      <div class="container protected dashboard">
         <div class="row">
           <div class="col" id="create-cta">
             <h3>Add A Family Member</h3>
@@ -45,7 +45,7 @@
       <section>
         <div class="container">
           <div class="row">
-            <form id="sign-up">
+            <form id="sign-up" class="form-design">
               <fieldset>
                 <legend>Sign up</legend>
                 <p id="message-sign-up"></p>
@@ -56,7 +56,7 @@
                 <p id="sign-in-link" class="link-style">Nevermind, I have an account</p>
               </fieldset>
             </form>
-            <form id="sign-in">
+            <form id="sign-in" class="form-design">
               <fieldset>
                 <legend class="title-sign-in">Sign In</legend>
                 <p id="message-sign-in"></p>
@@ -67,7 +67,7 @@
                 <p id="change-pw-link" class="link-style">Change your password here</p>
               </fieldset>
             </form>
-            <form id="change-password">
+            <form id="change-password" class="form-design">
               <fieldset>
                 <legend>Change Password</legend>
                 <p id="message-change-password"></p>
@@ -80,9 +80,9 @@
         </div>
       </section>
       <section>
-        <div class="container">
+        <div class="container protected">
           <div class="row">
-            <form id="add-family-member">
+            <form id="add-family-member" class="form-design">
               <fieldset>
                 <legend>Add Family Member</legend>
                 <p id="message-add"></p>
@@ -97,7 +97,7 @@
         </div>
       </section>
       <section>
-        <div class="container">
+        <div class="container protected dashboard">
           <div class="row">
             <div class="col tree">
               <h2>Family Tree</h2>
@@ -106,10 +106,10 @@
         </div>
       </section>
       <section>
-        <div id="family-section" class="container">
+        <div id="family-section" class="container protected">
           <div class="row">
             <div class="col">
-              <p class="display-family"></p>
+              <div class="display-family"></div>
             </div>
           </div>
         </div>

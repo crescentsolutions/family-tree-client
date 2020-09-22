@@ -28,10 +28,45 @@ const createCallToAction = function () {
   $('#create-cta').hide()
 }
 
+const familyListEditOption = function () {
+  console.log('button was clicked')
+}
+const familyListDeleteOption = function () {
+  console.log('button was clicked')
+}
+
+// const familyOptionsClicked = function () {
+// console.log('button was clicked')
+// $('#family-member-form').on('click', '#list-item-options', function () {
+//
+// })
+// $('#family-list-item').append(`
+//   <ul id="menu-of-options">
+//     <li class="edit-option">Edit</li>
+//     <li class="delete-option">Delete</li>
+//   </ul>`)
+//
+// if (listOptionDeleteClick) {
+//   $('#list-item-options').hide()
+//   $('#menu-of-options').hide()
+//   $('#family-list-item').append(`
+//     <input id="delete" type="submit" value="Delete">
+//     `)
+// } else if (listOptionEditClick) {
+//   $('#list-item-options').hide()
+//   $('#menu-of-options').hide()
+//   $('#family-list-item').append(`
+//     <input id="update" type="submit" value="Edit">
+//     `)
+// }
+// }
+
 module.exports = {
   linkSignUp: linkSignUp,
   linkSignIn: linkSignIn,
   linkChangePw: linkChangePw,
   headerChangePw: headerChangePw,
-  createCallToAction: createCallToAction
+  createCallToAction: createCallToAction,
+  familyListEditOption: familyListEditOption,
+  familyListDeleteOption: familyListDeleteOption
 }
