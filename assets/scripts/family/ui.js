@@ -4,18 +4,50 @@
 
 const store = require('./../store.js')
 
+const messageTimer = function (message) {
+  $('#message').text(message)
+  setTimeout(function () {
+    $('#message').text('')
+  }, 2000)
+}
+
 const onAddSuccess = function (response) {
-  $('#message').text('Family member successfully added')
+  messageTimer('Family member successfully added')
   $('#add-family-member').trigger('reset')
+  $('#add-family-member').hide()
+  $('#create-cta').show()
+  console.log(response.familyMember.generation)
 
   if ($('#family-section').is(':visible')) {
-    $('#family-member-form').append(`
-      <form id="family-member-form" data-id=${response.familyMember._id} data-owner=${response.familyMember.owner}>
+    $('.display-family').prepend(`
+      <div id="show-list">
+      <ul id="family-list-item" data-id=${response.familyMember._id}>
+        <li><strong>Name:</strong> ${response.familyMember.firstName}</li>
+        <li><strong>Relationship:</strong> ${response.familyMember.relationship}</li>
+        <li><strong>Generation:</strong> ${response.familyMember.generation}</li>
+        <li><strong>Family Tree:</strong> ${response.familyMember.familyTree}</li>
+        <button id="update" class="float-none">Edit</button>
+        <button id="delete" class="float-none">Delete</button>
+      </ul>
+
+      <form id="delete-family-member" data-id=${response.familyMember._id} data-owner=${response.familyMember.owner}>
         <fieldset>
-          <p>Name: ${response.familyMember.firstName}, Relationship: ${response.familyMember.relationship}, Generation: ${response.familyMember.generation}, Family Tree: ${response.familyMember.familyTree}</p>
-          <input type="submit" value="Delete">
+          <label>Delete entry here</label>
+          <input id="delete" class="float-none" type="submit" value="Delete">
         </fieldset>
       </form>
+
+      <form id="update-family-member" class="form-design" data-id=${response.familyMember._id} data-owner=${response.familyMember.owner}>
+      <fieldset>
+      <input id="add-name" type="text" name="familyMember[firstName]" value="${response.familyMember.firstName}">
+      <input id="add-relationship" type="text" name="familyMember[relationship]" value="${response.familyMember.firstName}">
+      <input id="add-generation" type="text" name="familyMember[generation]" value="${response.familyMember.firstName}">
+      <input id="add-choice" type="text" name="familyMember[familyTree]" value="${response.familyMember.firstName}">
+      <input type="submit" value="Add New Family Member">
+        <input type="submit" value="Edit">
+      </fieldset>
+    </form>
+    </div>
       `)
   } else {
     return null
@@ -23,29 +55,31 @@ const onAddSuccess = function (response) {
 }
 
 const onAddFailure = function (error) {
-  $('#message').text('We could not add a family member')
+  messageTimer('We could not add a family member')
   console.log(error)
 }
 
 const showMemberSuccess = function (response) {
-  $('#message').text('View your family below')
+  messageTimer('View your family below')
   $('#family-section').show()
 
   const showList = function () {
     for (let i = 0; i < response.familyMembers.length; i++) {
       $('.display-family').append(`
+        <div id="show-list">
         <ul id="family-list-item" data-id=${response.familyMembers[i]._id}>
-          <li>Name: ${response.familyMembers[i].firstName},</li>
-          <li>Relationship: ${response.familyMembers[i].relationship},</li>
-          <li>Generation: ${response.familyMembers[i].generation},</li>
-          <li>Family Tree: ${response.familyMembers[i].familyTree}</li>
-          <button id="update">Edit</button>
-          <button id="delete">Delete</button>
+          <li><strong>Name:</strong> ${response.familyMembers[i].firstName}</li>
+          <li><strong>Relationship:</strong> ${response.familyMembers[i].relationship}</li>
+          <li><strong>Generation:</strong> ${response.familyMembers[i].generation}</li>
+          <li><strong>Family Tree:</strong> ${response.familyMembers[i].familyTree}</li>
+          <button id="update" class="float-none">Edit</button>
+          <button id="delete" class="float-none">Delete</button>
         </ul>
 
         <form id="delete-family-member" data-id=${response.familyMembers[i]._id} data-owner=${response.familyMembers[i].owner}>
           <fieldset>
-            <input id="delete" type="submit" value="Delete">
+            <label>Delete entry here</label>
+            <input id="delete" class="float-none" type="submit" value="Delete">
           </fieldset>
         </form>
 
@@ -59,6 +93,7 @@ const showMemberSuccess = function (response) {
           <input type="submit" value="Edit">
         </fieldset>
       </form>
+      </div>
         `)
     }
   }
@@ -68,27 +103,29 @@ const showMemberSuccess = function (response) {
 }
 
 const showMemberFailure = function (error) {
-  $('#message').text('Show FAILED')
+  messageTimer('Show FAILED')
   console.log(error)
 }
 
 const onDeleteSuccess = function (response) {
-  $('#message').text('Family member successfully deleted')
+  messageTimer('Family member successfully deleted')
+  $('#delete-family-member').hide()
   console.log('New famiy member successfully deleted')
 }
 
 const onDeleteFailure = function (error) {
-  $('#message').text('Delete FAILED')
+  messageTimer('Delete FAILED')
   console.log(error)
 }
 
 const updateMemberSuccess = function (response) {
-  $('#message').text('Family member successfully updated')
+  messageTimer('Family member successfully updated')
+  $('#update-family-member').hide()
   console.log('New famiy member successfully updated')
 }
 
 const updateMemberFailure = function (error) {
-  $('#message').text('Update FAILED')
+  messageTimer('Update FAILED')
   console.log(error)
 }
 

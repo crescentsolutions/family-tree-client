@@ -15,7 +15,7 @@ const messageTimer = function (message) {
   $('#message').text(message)
   setTimeout(function () {
     $('#message').text('')
-  }, 1000)
+  }, 2000)
 }
 
 const onSignUpSuccess = function (response) {

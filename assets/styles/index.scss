@@ -4,8 +4,12 @@ $grey-1: rgba(186, 186, 194, .9);
 $grey-2: #494d53;
 $charcoal: #36454f;
 $black: #000;
+$white: #fff;
+$purple-1: #654e74;
+$purple-2: #9f71ab;
 $purple-gradient-1: linear-gradient($grey-1, #9f71ab, #654e74);
-$purple-gradient-2: linear-gradient($grey-1, #9f71ab);
+$purple-gradient-2: linear-gradient($grey-1, #654e74);
+$square-blur: #094871;
 $standard-radius: 50px;
 $input-radius: 5px;
 $main-text: #fff;
@@ -15,17 +19,47 @@ $clear: rgba(186, 186, 194, .1);
 * {
   color: $black;
 }
+html {
+  background: $purple-1;
+}
+li {
+  list-style-type: none;
+}
 body {
   background: $purple-gradient-1;
   background-repeat: no-repeat;
   height: 100vh;
   width: 100%;
+  padding-top: 40px;
+}
+#family-section {
+
+}
+#show-list {
+  background: $purple-2;
+  box-shadow: 5px 7px 20px $charcoal;
+  -webkit-box-shadow: 5px 7px 20px $charcoal;
+  -moz-box-shadow: 5px 7px 20px $square-blur;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+#update-family-member , #delete-family-member {
+  display: none;
+}
+#update, #delete {
+  background: $clear;
+  border: $thin-border;
+  color: $black;
+  cursor: pointer;
+  float: right;
 }
 
 h1 {
   border: $thin-border;
   margin: auto;
-  margin-top: 40px;
   margin-bottom: 20px;
   text-align: center;
   width: 50%;
@@ -52,24 +86,33 @@ h1 {
     padding: 1em;
     width: inherit;
   }
-  .button-style-1 {
-    background: $clear;
-    border: $thin-border;
-    color: $black;
-    cursor: pointer;
-    float: right;
 
     input[type=text] {
       color: $black;
-    }
-    :hover {
-      background: $black;
-      color: #fff;
-    }
-    :focus {
       background: $grey-1;
     }
-  }
+
+    :focus {
+      background: $white;
+    }
+}
+.button-style-1 {
+  background: $clear;
+  border: $thin-border;
+  color: $black;
+  cursor: pointer;
+  float: right;
+}
+.button-style-1:hover {
+  background: $black;
+  color: $white;
+}
+input[type="submit"] {
+  background: $clear;
+  border: $thin-border;
+  color: $black;
+  cursor: pointer;
+  float: right;
 }
 
 .link-style {
@@ -85,6 +128,9 @@ h1 {
 /*AUTH*/
 .sign-out {
   display: none;
+}
+.float-none {
+  float: none;
 }
 #change-pw-btn {
   display: none;
@@ -111,7 +157,16 @@ h1 {
 /*FAMILY DISPLAY*/
 #family-section {
   display: none;
+  color: $black;
+  cursor: pointer;
+  float: right;
+  margin: auto;
 }
 #add-family-member {
   display: none;
+  background: $clear;
+  border: $thin-border;
+  color: $black;
+  cursor: pointer;
+  float: right;
 }

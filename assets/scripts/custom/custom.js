@@ -29,10 +29,16 @@ const createCallToAction = function () {
 }
 
 const familyListEditOption = function () {
-  console.log('button was clicked')
+  $('#update-family-member').show()
+  $('#delete').hide()
+  $('#update').hide()
+  $('#delete-family-member').hide()
 }
 const familyListDeleteOption = function () {
-  console.log('button was clicked')
+  $('#delete-family-member').show()
+  $('#update-family-member').hide()
+  $('#delete').hide()
+  $('#update').hide()
 }
 
 module.exports = {
