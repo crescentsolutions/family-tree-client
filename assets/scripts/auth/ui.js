@@ -32,7 +32,7 @@ const onSignUpFailure = function (error) {
     $('#message').hide()
   })
   $('#sign-up').trigger('reset')
-  if (error.statusText == 'Unprocessable Entity') {
+  if (error.statusText === 'Unprocessable Entity') {
     $('#message-sign-up').text('This account already exists.')
   }
   messageReset(error)

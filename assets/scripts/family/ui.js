@@ -2,7 +2,7 @@
 
 // Source: https://www.w3schools.com/jquery/jquery_dom_set.asp
 
-const store = require('./../store.js')
+// const store = require('./../store.js')
 
 const messageTimer = function (message) {
   $('#message').text(message)
