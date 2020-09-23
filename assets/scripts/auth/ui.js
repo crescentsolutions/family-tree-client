@@ -11,25 +11,22 @@ const messageReset = function () {
   })
 }
 
-let formMessage = ''
-let messageTimer = function (message) {
+const messageTimer = function (message) {
   $('#message').text(message)
   setTimeout(function () {
     $('#message').text('')
-  }, 3000)
+  }, 1000)
 }
 
 const onSignUpSuccess = function (response) {
-  $('#message').text('Thanks for signing up ' + response.user.email)
-  $('#message').css('border', 'solid 5px #fff')
+  messageTimer('Thanks for signing up ' + response.user.email)
   $('#sign-in').show()
   $('#sign-up').trigger('reset')
   $('#sign-up').hide()
   $('#change-password').hide()
 }
 const onSignUpFailure = function (error) {
-  $('#message').text('Sign up failed. Please try again.')
-  $('#message').css('border', 'solid 5px #fff')
+  messageTimer('Sign up failed. Please try again.')
   $('input').on('focus', function () {
     $('#message-container').hide()
     $('#message').hide()
@@ -61,10 +58,9 @@ const onSignInSuccess = function (response) {
   }
 }
 const onSignInFailure = function (error) {
-  $('#message').text('Sign in failed. Please try again.')
-  $('#message').css('border', 'solid 5px #fff')
+  messageTimer('Sign in failed. Please try again.')
   if (error.statusText === 'Unauthorized') {
-    $('#message-sign-in').text('You have entered the wrong credentials. Try again.')
+    messageTimer('You have entered the wrong credentials. Try again.')
     $('#sign-in-email').css('background', 'rgba(240, 52, 52, .5)')
     $('#sign-in-password').css('background', 'rgba(240, 52, 52, .5)')
     $('input').on('focus', function () {
@@ -72,14 +68,12 @@ const onSignInFailure = function (error) {
       $('#sign-in-password').css('background', 'rgb(255, 255, 255)')
     })
   } else {
-    $('#message').text('Sign in failed. Please try again.')
-    $('#message').css('border', 'solid 5px #fff')
+    messageTimer('Sign in failed. Please try again.')
   }
   messageReset(error)
 }
 const onSignOutSuccess = function (response) {
-  formMessage = 'You are logged out'
-  messageTimer(formMessage)
+  messageTimer('You are logged out')
   $('#sign-up').hide()
   $('#sign-in').show()
   $('#sign-up-link').show()
@@ -93,7 +87,7 @@ const onSignOutSuccess = function (response) {
 }
 
 const onSignOutFailure = function (error) {
-  $('#message').text('Sign out failed. Please try again.')
+  messageTimer('Sign out failed. Please try again.')
   $('input').on('focus', function () {
     $('#message-container').hide()
   })
@@ -101,16 +95,14 @@ const onSignOutFailure = function (error) {
 }
 const onChangePwSuccess = function () {
   $('#message').show()
-  $('#message').text('Your password was successfully changed. You are logged in.')
-  $('#message').css('border', 'solid 5px #fff')
+  messageTimer('Your password was successfully changed. You are logged in.')
   $('#sign-in').show()
   $('#change-password').trigger('reset')
   $('#change-password').hide()
   $('#sign-in').hide()
 }
 const onChangePwFailure = function (error) {
-  $('#message').text('Password could not be changed. Please try again.')
-  $('#message').css('border', 'solid 5px #fff')
+  messageTimer('Password could not be changed. Please try again.')
   messageReset(error)
 }
 module.exports = {

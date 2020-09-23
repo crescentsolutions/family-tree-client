@@ -1,10 +1,11 @@
 @import '~bootstrap/scss/bootstrap';
 
-$grey-1: rgba(186, 186, 194, .8);
+$grey-1: rgba(186, 186, 194, .9);
 $grey-2: #494d53;
 $charcoal: #36454f;
 $black: #000;
-$purple-gradient: linear-gradient($grey-1, #9f71ab);
+$purple-gradient-1: linear-gradient($grey-1, #654e74);
+$purple-gradient-2: linear-gradient($grey-1, #9f71ab);
 $standard-radius: 50px;
 $input-radius: 5px;
 $main-text: #fff;
@@ -15,7 +16,7 @@ $clear: rgba(186, 186, 194, .1);
   color: $black;
 }
 body {
-  background: $purple-gradient;
+  background: $purple-gradient-1;
   background-repeat: no-repeat;
   height: 100vh;
   width: 100%;
@@ -24,10 +25,16 @@ body {
 h1 {
   border: $thin-border;
   margin: auto;
-  margin-top: 20px;
+  margin-top: 40px;
+  margin-bottom: 20px;
   text-align: center;
   width: 50%;
   padding: 1em 0px;
+}
+
+#message {
+  margin-top: 20px;
+  text-align: center;
 }
 
 .form-design {
@@ -40,7 +47,6 @@ h1 {
   input {
     border: 0;
     border-radius: $input-radius;
-    color: $main-text;
     margin: 0;
     margin: 5px;
     padding: 1em;
@@ -52,8 +58,13 @@ h1 {
     color: $black;
     cursor: pointer;
     float: right;
+
+    input[type=text] {
+      color: $black;
+    }
     :hover {
-      background: $grey-1;
+      background: $black;
+      color: #fff;
     }
     :focus {
       background: $grey-1;
@@ -62,9 +73,10 @@ h1 {
 }
 
 .link-style {
-  font-weight: bold;
-  display: block;
   cursor: pointer;
+  display: block;
+  font-weight: bold;
+  margin-top: 20px;
   :hover {
     color: $grey-1;
   }
