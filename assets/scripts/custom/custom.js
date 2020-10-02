@@ -29,16 +29,18 @@ const createCallToAction = function () {
 }
 
 const familyListEditOption = function () {
-  $('#update-family-member').show()
-  $('#delete').hide()
-  $('#update').hide()
-  $('#delete-family-member').hide()
+  const targetOfClick = event.target.dataset.id
+  $('#update-family-member[data-id="' + targetOfClick + '"]').show()
+  $('#delete[data-id="' + targetOfClick + '"]').hide()
+  $('#update[data-id="' + targetOfClick + '"]').hide()
+  $('#delete-family-member[data-id="' + targetOfClick + '"]').hide()
 }
-const familyListDeleteOption = function () {
-  $('#delete-family-member').show()
-  $('#update-family-member').hide()
-  $('#delete').hide()
-  $('#update').hide()
+const familyListDeleteOption = function (event) {
+  const targetOfClick = event.target.dataset.id
+  $('#delete-family-member[data-id="' + targetOfClick + '"]').show()
+  $('#update-family-member[data-id="' + targetOfClick + '"]').hide()
+  $('#delete[data-id="' + targetOfClick + '"]').hide()
+  $('#update[data-id="' + targetOfClick + '"]').hide()
 }
 
 module.exports = {

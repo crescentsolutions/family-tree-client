@@ -29,6 +29,9 @@ const deleteFamilyMember = function (event) {
   // const submitFamilyMember = event.target
   $('#message').text('Delete button was clicked')
 
+  const targetOfClick = event.target.dataset.id
+  $('#show-list[data-id="' + targetOfClick + '"]').hide()
+
   // submitFamilyMember displays the ID for this object
   const submitFamilyMemberId = $(event.target).data('id')
 
@@ -44,6 +47,7 @@ const updateFamilyMember = function (event) {
   $('#message').text('Family member is being updated')
   const submitFamilyMember = event.target
   const data = getFamilyData(submitFamilyMember)
+
   const submitFamilyMemberId = $(event.target).data('id')
 
   api.updateMember(submitFamilyMemberId, data)
