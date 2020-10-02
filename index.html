@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Example</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <header>
+        <form id="sign-out" class="sign-out protected dashboard">
+          <fieldset>
+            <input class="button-style-1" type="submit" value="Sign Out">
+          </fieldset>
+        </form>
+        <button id="change-pw-btn" class="button-style-1">Change Password</button>
+      </header>
+      <h1>Family Tree</h1>
+      <div class="container protected dashboard">
+        <div class="row">
+          <div class="col" id="create-cta">
+            <h3>Add A Family Member</h3>
+            <button class="button-style-1 float-none" id="create-button-cta">Add</button>
+          </div>
+          <div class="col view-switch-option">
+            <form id="toggle-family-view">
+              <fieldset>
+                <h3>View Family As List</h3>
+                <input class="button-style-1" type="submit" value="View Family">
+              </fieldset>
+            </form>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col message-container">
+            <p id="message"></p>
+          </div>
+        </div>
+      </div><!-- END OF CONTAINER -->
+      <section>
+        <div class="container">
+          <div class="row">
+            <form id="sign-up" class="form-design">
+              <fieldset>
+                <legend>Sign up</legend>
+                <p id="message-sign-up"></p>
+                <input id="sign-up-email" type="email" name="credentials[email]" placeholder="Email">
+                <input id="sign-up-password" type="password" name="credentials[password]" placeholder="Password">
+                <input id="sign-up-password_confirmation" type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+                <input class="button-style-1" type="submit" value="Sign up!">
+                <p id="sign-in-link" class="link-style">Nevermind, I have an account</p>
+              </fieldset>
+            </form>
+            <form id="sign-in" class="form-design">
+              <fieldset>
+                <legend class="title-sign-in">Sign In</legend>
+                <p id="message-sign-in"></p>
+                <input id="sign-in-email" type="email" name="credentials[email]" placeholder="Email">
+                <input id="sign-in-password" type="password" name="credentials[password]" placeholder="Password">
+                <input class="button-style-1" type="submit" value="Sign In">
+                <p id="sign-up-link" class="link-style">Don't have an account? Sign Up By Here</p>
+                <p id="change-pw-link" class="link-style">Change your password here</p>
+              </fieldset>
+            </form>
+            <form id="change-password" class="form-design">
+              <fieldset>
+                <legend>Change Password</legend>
+                <p id="message-change-password"></p>
+                <input id="old-password" type="password" name="passwords[old]" placeholder="Old Password">
+                <input id="new-password" type="password" name="passwords[new]" placeholder="New Password">
+                <input class="button-style-1" type="submit" value="Change Password">
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="container protected">
+          <div class="row">
+            <form id="add-family-member" class="form-design">
+              <fieldset>
+                <legend>Add Family Member</legend>
+                <p id="message-add"></p>
+                <input id="add-name" type="text" name="familyMember[firstName]" placeholder="Name">
+                <input id="add-relationship" type="text" name="familyMember[relationship]" placeholder="Relationship">
+                <input id="add-generation" type="text" name="familyMember[generation]" placeholder="Generation">
+                <input id="add-choice" type="text" name="familyMember[familyTree]" placeholder="Choose">
+                <input type="submit" value="Add New Family Member">
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div id="family-section" class="container protected">
+          <div class="row">
+            <div class="col">
+              <div class="display-family"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </body>
+</html>
